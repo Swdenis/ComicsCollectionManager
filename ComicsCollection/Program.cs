@@ -14,18 +14,12 @@ namespace ComicsCollection
             {
                 Console.WriteLine(
                     "\nPress G tp group comics by price, R to get reviews, any other key to quit\n");
-                switch (Console.ReadKey(true).KeyChar.ToString().ToUpper())
+                done = Console.ReadKey(true).KeyChar.ToString().ToUpper() switch
                 {
-                    case "G":
-                        done = GroupComicsByPrice();
-                        break;
-                    case "R":
-                        done = GetReviews();
-                        break;
-                    default:
-                        done = true;
-                        break;
-                }
+                    "G" => GroupComicsByPrice(),
+                    "R" => GetReviews(),
+                    _ => true,
+                };
 
                 
                 }
